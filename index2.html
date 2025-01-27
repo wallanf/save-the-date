@@ -5,11 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
     <title>falta menos que antes</title>
 </head>
 <body>
-    <div class="destaque">
-        <p class="destaque_explicacao">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing." <span>|</span></p>
+    <div class="container">
+        <h1>Sobre nós</h1>
+        <div class="gallery">
+            <img src="img/primeira.jpg" alt="Imagem 1"onclick="openModal('img/primeira.jpg', 'Essa foi a primeira foto nossa, em frente a igreja, não vimos banter a foto.')">
+            <img src="img/paciencia.jpg" alt="Imagem 2" onclick="openModal('img/paciencia.jpg', 'Momento descontraido no casamento de Daniel e Luise, ela sempre tentando me arrumar pra tirar fotos e eu sempre fazendo graça')">
+            <img src="img/conchas.jpg" alt="Imagem 3" onclick="openModal('img/conchas.jpg', 'Que FOTÃO, um belo registro na praia das conchas em agosto de 2020, nossa primeira férias juntos')">
+            <img src="img/arraial.jpg" alt="Imagem 4" onclick="openModal('img/arraial.jpg', 'Nosso primeiro carnval viajando juntos em 2013')">
+            <img src="img/novaFriburgo.jpg" alt="Imagem 5" onclick="openModal('img/novaFriburgo.jpg', 'Um final de semana em Nova Friburgo e fomos surpreendidos com um festival!!! (Maifest)')">
+        </div>
     </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Imagem Modal">
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(imageSrc, text) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('modalText').innerText = text;
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
