@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+body{
+    
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(img/juntos.gif);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.destaque{
+    background-color: rgba(105, 27, 11, 0.712);
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    
+      
+}
+
+.destaque_explicacao{
+  color: lime; 
+  font-family: "Courier";
+  font-size: 20px;
+  margin: 10px 0 0 10px;
+  overflow: hidden;
+  width: 30em;
+  animation: type 10s steps(60, end); 
+  text-align:center;
+}
+
+.destaque_explicacao :nth-child(2){
+    animation: type2 8s steps(60, end);
+  }
+  span{
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes type{ 
+    from { width:0; } 
+  } 
+  
+  @keyframes type2{
+    0%{width: 0;}
+    50%{width: 0;}
+    100%{ width: 100; } 
+  } 
+  
+  @keyframes blink{
+    to{opacity: .0;}
+  }
+  
+  ::selection{
+    background: black;
+  }

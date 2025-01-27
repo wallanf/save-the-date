@@ -1,0 +1,30 @@
+* {
+    padding: o;
+    margin: 0;
+}
+
+html,body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('img/saveTheDate.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  
+}
+
+
+@media (max-width: 768px) {
+    .gallery img {
+        max-height: 200px;
+    }
+}
+@media (max-width: 480px){
+    .gallery img {
+        max-height: 150px;
+    }
+}
