@@ -40,39 +40,58 @@
                 <p id="modalText"></p>
             </div>
         </div>
-       
-    <audio id="background-music" loop>
-        <source src="audio/amorSemMedida.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
-        <button id="play-button" onclick="playMusic()" style="display: none;">Tocar Música</button>
+
+        <audio id="background-music" loop>
+            <source id="audio-source" src="" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const audio = document.getElementById('background-music');
-            const playButton = document.getElementById('play-button');
-            audio.play().catch(error => {
-                console.log('Reprodução automática bloqueada:', error);
-                playButton.style.display = 'block';
-            });
-        });
+        const musicList = [
+            'audio/amorSemMedida.mp3',
+            'audio/Contrato.mp3',
+            'audio/vemPraMinhaVida.mp3'
+        ];
+
+        let musicPlayed = false;
+        let shuffledMusicList = [];
+
+        function shuffleMusicList() {
+            shuffledMusicList = musicList.sort(() => Math.random() - 0.5);
+        }
 
         function playMusic() {
-            const audio = document.getElementById('background-music');
-            audio.play();
-            document.getElementById('play-button').style.display = 'none';
+            if (!musicPlayed) {
+                shuffleMusicList();
+                playNextMusic();
+                musicPlayed = true;
+            }
         }
-        
+
+        function playNextMusic() {
+            if (shuffledMusicList.length > 0) {
+                const audio = document.getElementById('background-music');
+                const audioSource = document.getElementById('audio-source');
+                audioSource.src = shuffledMusicList.shift();
+                audio.load();
+                audio.play();
+                audio.addEventListener('ended', playNextMusic);
+            }
+        }
+
         function openModal(imageSrc, text) {
             document.getElementById('modalImage').src = imageSrc;
             document.getElementById('modalText').innerText = text;
             document.getElementById('myModal').style.display = 'flex';
+            playMusic();
         }
 
         function closeModal() {
             document.getElementById('myModal').style.display = 'none';
         }
+        
+
     </script>
 </body>
-</ht
+</html>
