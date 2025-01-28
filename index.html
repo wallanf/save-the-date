@@ -40,19 +40,30 @@
                 <p id="modalText"></p>
             </div>
         </div>
-        <audio id="background-music" loop>
-            <source src="audio/amorSemMedida.mp3" type="audio/mpeg">
-            Seu navegador não suporta o elemento de áudio.
-        </audio>
+       
+    <audio id="background-music" loop>
+        <source src="audio/amorSemMedida.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+        <button id="play-button" onclick="playMusic()" style="display: none;">Tocar Música</button>
     </section>
-    
- 
 
     <script>
-           window.addEventListener('load', function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('background-music');
+            const playButton = document.getElementById('play-button');
+            audio.play().catch(error => {
+                console.log('Reprodução automática bloqueada:', error);
+                playButton.style.display = 'block';
+            });
+        });
+
+        function playMusic() {
             const audio = document.getElementById('background-music');
             audio.play();
-        });
+            document.getElementById('play-button').style.display = 'none';
+        }
+        
         function openModal(imageSrc, text) {
             document.getElementById('modalImage').src = imageSrc;
             document.getElementById('modalText').innerText = text;
