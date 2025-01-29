@@ -14,15 +14,15 @@
         <h2 class="titulo_fotos">Sobre nós</h2>
         <div class="container">
             <div class="gallery">
-                <img src="img/primeira.jpg" alt="Imagem 1"onclick="openModal('img/primeira.jpg', 'Essa foi a primeira foto nossa, em frente a igreja, não vimos bater a foto.')">
-                <img src="img/primeiroNiver.jpg" alt="Imagem 2"onclick="openModal('img/primeiroNiver.jpg', ' Esse foi o primeiro aniversário dela comemorando juntos em abril de 2012')">
-                <img src="img/diaNamorados.jpg" alt="Imagem 3"onclick="openModal('img/diaNamorados.jpg', ' Nosso primeiro dia dos namorados juntos, na praia de Copacabana em 2012')">
-                <img src="img/arraial.jpg" alt="Imagem 4" onclick="openModal('img/arraial.jpg', 'Nosso primeiro carnaval viajando juntos em 2013')">
-                <img src="img/paciencia.jpg" alt="Imagem 5" onclick="openModal('img/paciencia.jpg', 'Momento descontraido no casamento de Daniel e Luise, ela sempre tentando me arrumar pra tirar fotos e eu sempre fazendo graça')">
-                <img src="img/conchas.jpg" alt="Imagem 6" onclick="openModal('img/conchas.jpg', 'Que FOTÃO, um belo registro na praia das conchas em agosto de 2020, nossa primeira férias juntos')">
-                <img src="img/novaFriburgo.jpg" alt="Imagem 7" onclick="openModal('img/novaFriburgo.jpg', 'Um final de semana em Nova Friburgo e fomos surpreendidos com um festival!!! (Maifest)')">
-            </div>
-        </div>
+                <img src="img/primeira.jpg" alt="Imagem 1" onclick="openModal(0)">
+                <img src="img/primeiroNiver.jpg" alt="Imagem 2" onclick="openModal(1)">
+                <img src="img/diaNamorados.jpg" alt="Imagem 3" onclick="openModal(2)">
+                <img src="img/arraial.jpg" alt="Imagem 4" onclick="openModal(3)">
+                <img src="img/paciencia.jpg" alt="Imagem 5" onclick="openModal(4)">
+                <img src="img/conchas.jpg" alt="Imagem 6" onclick="openModal(5)">
+                <img src="img/novaFriburgo.jpg" alt="Imagem 7" onclick="openModal(6)">
+            </div>    
+         </div>
 
         <div class="informacoes">
             <div class="card__informocao">
@@ -38,16 +38,27 @@
                 <span class="close" onclick="closeModal()">&times;</span>
                 <img id="modalImage" src="" alt="Imagem Modal">
                 <p id="modalText"></p>
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
             </div>
         </div>
 
-        <audio id="background-music" loop>
+        <audio id="background-music" >
             <source id="audio-source" src="" type="audio/mpeg">
             Seu navegador não suporta o elemento de áudio.
         </audio>
     </section>
 
     <script>
+         const images = [
+            { src: 'img/primeira.jpg', text: 'Essa foi a primeira foto nossa, em frente a igreja, não vimos bater a foto.' },
+            { src: 'img/primeiroNiver.jpg', text: 'Esse foi o primeiro aniversário dela comemorando juntos em abril de 2012' },
+            { src: 'img/diaNamorados.jpg', text: 'Nosso primeiro dia dos namorados juntos, na praia de Copacabana em 2012' },
+            { src: 'img/arraial.jpg', text: 'Nosso primeiro carnaval viajando juntos em 2013' },
+            { src: 'img/paciencia.jpg', text: 'Momento descontraído no casamento de Daniel e Luise, ela sempre tentando me arrumar pra tirar fotos e eu sempre fazendo graça' },
+            { src: 'img/conchas.jpg', text: 'Que FOTÃO, um belo registro na praia das conchas em agosto de 2020, nossa primeira férias juntos' },
+            { src: 'img/novaFriburgo.jpg', text: 'Um final de semana em Nova Friburgo e fomos surpreendidos com um festival!!! (Maifest)' }
+        ];
         const musicList = [
             'audio/amorSemMedida.mp3',
             'audio/Contrato.mp3',
@@ -56,9 +67,10 @@
 
         let musicPlayed = false;
         let shuffledMusicList = [];
+        let currentMusicIndex = 0
 
         function shuffleMusicList() {
-            shuffledMusicList = musicList.sort(() => Math.random() - 0.5);
+            shuffledMusicList =[...musicList].sort(() => Math.random() - 0.5);
         }
 
         function playMusic() {
@@ -70,28 +82,40 @@
         }
 
         function playNextMusic() {
-            if (shuffledMusicList.length > 0) {
+            if (currentMusicIndex < shuffledMusicList.length) {
                 const audio = document.getElementById('background-music');
                 const audioSource = document.getElementById('audio-source');
-                audioSource.src = shuffledMusicList.shift();
+                audioSource.src = shuffledMusicList[currentMusicIndex];
                 audio.load();
                 audio.play();
+                currentMusicIndex++;
+                audio.removeEventListener('ended', playNextMusic)
                 audio.addEventListener('ended', playNextMusic);
             }
         }
 
-        function openModal(imageSrc, text) {
-            document.getElementById('modalImage').src = imageSrc;
-            document.getElementById('modalText').innerText = text;
+        
+        function openModal(index) {
+            currentIndex = index;
+            updateModal();
             document.getElementById('myModal').style.display = 'flex';
             playMusic();
+        
         }
 
         function closeModal() {
             document.getElementById('myModal').style.display = 'none';
         }
-        
 
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            updateModal();
+        }
+
+        function updateModal() {
+            document.getElementById('modalImage').src = images[currentIndex].src;
+            document.getElementById('modalText').innerText = images[currentIndex].text;
+        }
     </script>
 </body>
 </html>
