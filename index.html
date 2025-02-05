@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,18 @@
 </head>
 <body>
     <section class="fotos">
-        <h2 class="titulo_fotos"></h2>
+        <div class="informacoes">
+            <div class="card__informocao">
+                <div class="descrição">
+                    <h2 class="descrição__titulo">ENFIM, VAMOS NOS CASAR!!!</h2>
+                    <h2 class="inicio_descricao">Queridos amigos e familiares,</h2>
+                    <p class="texto"> 
+                        Estamos prestes a viver um momento muito especial em nossas vidas e gostaríamos de compartilhar com vocês alguns dos nossos registros. Cada imagem representa um momento único e especial. Sintam-se à vontade para clicar nas fotos e descobrir as histórias por trás de cada uma. Nosso namoro começou em fevereiro de 2012..." 
+                    </p>
+                </div>    
+            </div>   
+        </div>
+
         <div class="container">
             <div class="gallery">
                 <img src="img/primeira.jpg" alt="Imagem 1" onclick="openModal(0)">
@@ -99,15 +110,7 @@
             </div>    
          </div>
 
-        <div class="informacoes">
-            <div class="card__informocao">
-                <div class="descrição">
-                    <h2 class="descrição__titulo">ENFIM, VAMOS NOS CASAR!!!</h2>
-                    <h2 class="inicio_descricao">Queridos amigos e familiares,</h2>
-                    <p class="texto"> 
-                        Estamos prestes a viver um momento muito especial em nossas vidas e gostaríamos de compartilhar com vocês alguns dos nossos registros. Cada imagem representa um momento único e especial. Sintam-se à vontade para clicar nas fotos e descobrir as histórias por trás de cada uma. Nosso namoro começou em fevereiro de 2012..."
-        </div>
-
+       
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
@@ -140,7 +143,7 @@
     <script>
          const images = [
             { src: 'img/primeira.jpg', text: 'Essa foi a primeira foto nossa, em frente a igreja, não vimos bater a foto.' },
-            { src: 'img/fundão.jpg', text: 'Com 6 dias de namoro, foi a apresentação para família dele, no aniversário da tia Ana Kelly em fevereiro de 2012.' },
+            { src: 'img/fundão.jpg', text: 'Com 6 dias de namoro, foi a apresentação para família dele, no aniversário da tia Ana Kelly em fevereiro de 2012 .' },
             { src: 'img/primeiroNiver.jpg', text: 'Esse foi o primeiro aniversário dela comemorando juntos, em abril de 2012.' },            
             { src: 'img/diaNamorados.jpg', text: 'Nosso primeiro dia dos namorados juntos, na praia de Copacabana em 2012.' },
             { src: 'img/festaJunina2012.jpg', text: 'Festa junina na igreja Nossa senhora dos Navegantes, junho de 2012.' }, 
