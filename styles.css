@@ -39,15 +39,17 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 10px;
+  align-items: center;
+  margin-left: 2em;
+  
 }
- .track-title {
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-    .track-artist {
-      font-size: 16px;
-    }
+.track-title {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.track-artist {
+font-size: 20px;
+}
   
 .audio {
   margin-top: 20px;
