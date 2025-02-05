@@ -117,7 +117,20 @@
                 <button class="next" onclick="changeImage(1)">&#10095;</button>
             </div>
         </div>
-
+       
+    </section>
+    <section class="Musica">
+       
+        <div id="playing-track">
+            <div class="track-image">
+                <img id="logo" src="img/coração.gif" alt="musica tocando" style="width: 50px; height: 50px; margin-bottom: 10px;">
+            </div>
+            <div class="track-info">
+                <div class="track-title" id="track-title"></div>
+                <div class="track-artist" id="track-artist"></div>
+            </div>
+        </div>
+        
         <audio id="background-music" >
             <source id="audio-source" src="" type="audio/mpeg">
             Seu navegador não suporta o elemento de áudio.
@@ -211,9 +224,14 @@
             
         ];
         const musicList = [
-            'audio/amorSemMedida.mp3',
-            'audio/Contrato.mp3',
-            'audio/vemPraMinhaVida.mp3'
+            { src: 'audio/amorSemMedida.mp3', title: 'Amor Sem Medida', artist: 'Matheus e Kauan' },
+            { src: 'audio/Contrato.mp3', title: 'Contrato', artist: 'Jorge & Mateus' },
+            { src: 'audio/vemPraMinhaVida.mp3', title: 'Vem Pra Minha Vida', artist: 'Henrique e Juliano' },
+            { src: 'audio/aindaBem.mp3', title: 'Ainda bem', artist: 'Thiaguinho'},
+            { src: 'audio/ateVerVoce.mp3', title: 'Até ver você', artist: 'Thiaguinho'},
+            { src: 'audio/logoEu.mp3', title: 'logoEu', artist:'Jorge & Mateus'},
+            { src: 'audio/euJuro.mp3', title: 'Eu juro', artist:'Armandinho'},
+            { src: 'audio/chuvaDeArroz.mp3', title: 'Chuva de Arroz', artist:'Luan Santana'}
         ];
 
         let musicPlayed = false;
@@ -233,19 +251,28 @@
         }
 
         function playNextMusic() {
-            if (currentMusicIndex < shuffledMusicList.length) {
-                const audio = document.getElementById('background-music');
-                const audioSource = document.getElementById('audio-source');
-                audioSource.src = shuffledMusicList[currentMusicIndex];
-                audio.load();
-                audio.play();
-                currentMusicIndex++;
-                audio.removeEventListener('ended', playNextMusic)
-                audio.addEventListener('ended', playNextMusic);
+            const audio = document.getElementById('background-music');
+            const audioSource = document.getElementById('audio-source');
+            if (currentMusicIndex >= shuffledMusicList.length) {
+                currentMusicIndex =0;
             }
+            audioSource.src = shuffledMusicList[currentMusicIndex].src;
+            updatePlayingTrack();
+            audio.load();
+            audio.play();
+            currentMusicIndex++;
+            audio.removeEventListener('ended', playNextMusic)
+            audio.addEventListener('ended', playNextMusic);
         }
 
-        
+        function updatePlayingTrack() {
+            const playingTrackDiv = document.getElementById('playing-track');
+            const currentTrack = shuffledMusicList[currentMusicIndex];
+            document.getElementById('track-title').innerText = `Música: ${currentTrack.title}`;
+            document.getElementById('track-artist').innerText =`Artista: ${currentTrack.artist}`;
+            playingTrackDiv.style.display = 'flex';
+        }
+
         function openModal(index) {
             currentIndex = index;
             updateModal();

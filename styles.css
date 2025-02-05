@@ -12,8 +12,45 @@ body{
     background-size:cover;
     background-position: center ;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     
+}
+#playing-track {
+  display: none;
+  padding: 10px 20px;
+  background-color: #ffffff88;
+  color: rgb(72, 72, 239);
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;  
+  margin: 1em;
+}
+.track-image {
+  margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+}
+.track-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+ .track-title {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    .track-artist {
+      font-size: 16px;
+    }
+  
+.audio {
+  margin-top: 20px;
 }
 .titulo_fotos{
   font-family:"Playwrite IN", serif;
@@ -170,10 +207,8 @@ body{
     .titulo_fotos{
         font-size: 26px;
     }
-    .galerry {
-        width:60% ;
-      
-        
+    .gallery {
+        width:60% ;    
     }
     .informacoes{
         width: 40%;
@@ -187,9 +222,7 @@ body{
         margin: 0 20vw 3em 20vw;
         align-items: center;
     }
-
-
-    .galerry{
+    .gallery{
         width: 50%;
     }
 
