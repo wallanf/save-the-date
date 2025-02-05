@@ -111,7 +111,7 @@ font-size: 20px;
 }
 
 .descrição__titulo{
-  color:#2a0cd1;
+  color:#001e6c;
   font-weight: 700;
   margin: 0.5em 0;
 }
@@ -119,7 +119,7 @@ font-size: 20px;
 .inicio_descricao{
   color:rgb(72, 72, 239);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   margin: 0.5em 0
   
 }
@@ -127,6 +127,7 @@ font-size: 20px;
 .texto{
   color:rgb(72, 72, 239);
   font-size: 14px;
+  font-weight: 700;
 }
 
 .modal {
