@@ -4,7 +4,6 @@
     
 }
 body{
-  
     width: 100vw;
     height: 100vh;
     background-image: url('img/fundoQr.jpg');
@@ -14,9 +13,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
 .fotos{
   margin-top: 8-em;
-}   
 }
 #playing-track {
   display: none;
@@ -42,8 +41,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 2em;
-  
+  margin-left: 2em;  
 }
 .track-title {
   font-size: 20px;
@@ -52,19 +50,12 @@ body{
 .track-artist {
 font-size: 20px;
 }
-  
-.audio {
-  margin-top: 20px;
-}
-
 .container {
   width: 85vw;
   max-width: 1200px;
   margin: 1em 1em;
-  overflow: hidden;
-  
+  overflow: hidden; 
 }
-
 .gallery {
   display: flex;
   overflow-x: scroll;
@@ -95,7 +86,6 @@ font-size: 20px;
 .gallery img:last-child {
   margin-right: 0;
 }
-
 .informacoes{
   background-color:#ffffff88;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -103,34 +93,28 @@ font-size: 20px;
   margin: 1em;
   padding: 1em;
 }
-
 .card__informacao{
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5em;
 }
-
 .descrição__titulo{
   color:#001e6c;
   font-weight: 700;
   margin: 0.5em 0;
   text-align: center;
 }
-
 .inicio_descricao{
   color:rgb(72, 72, 239);
   font-weight: 700;
   font-size: 20px;
   margin: 0.5em 0
-  
 }
-
 .texto{
   color:rgb(72, 72, 239);
   font-size: 15px;
   font-weight: 700;
 }
-
 .modal {
     display: none;
     position: fixed;
@@ -200,13 +184,10 @@ font-size: 20px;
 .prev:hover, .next:hover {
   background-color: rgba(0, 0, 0, 0.9);
 }
-
-
 @media screen and (max-width: 768px) {
   .body{
     background-size:  cover;
   }
-  
   .titulo_fotos {
       font-size: 18px;
   }
@@ -226,11 +207,14 @@ font-size: 20px;
       font-size: 26px;
   }
   .gallery {
-      width: 60%;
+      width: 1000%;
   }
   .informacoes {
       width: 40%;
-      margin: 8em auto;
+      margin: 4em auto;
+  }
+  .modal img{
+    max-width: 30vw;
   }
 }
 @media screen and (min-width: 1728px) {
@@ -240,13 +224,19 @@ font-size: 20px;
       align-items: center;
   }
   .gallery {
-      width: 50%;
+      width: 1000%;
+  }
+  .modal img{
+    max-width: 50vw; 
   }
   .descrição__titulo {
-      font-size: 32px;
+      font-size: 70px;
+  }
+  .inicio_descricao{
+    font-size: 50px;
   }
   .texto {
-      font-size: 16px;
+      font-size: 25px;
   }
   .descrição {
       margin-right: 2em;
