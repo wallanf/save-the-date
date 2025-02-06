@@ -195,6 +195,7 @@ font-size: 20px;
       align-items: center;
   }
   .gallery img {
+      
       max-height: 200px;
   }
   .informacoes {
@@ -214,7 +215,7 @@ font-size: 20px;
       margin: 4em auto;
   }
   .modal img{
-    max-width: 30vw;
+    width: 50vw;
   }
 }
 @media screen and (min-width: 1728px) {
