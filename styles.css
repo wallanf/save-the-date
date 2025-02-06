@@ -22,7 +22,7 @@ body{
   display: none;
   padding: 10px 20px;
   background-color: #ffffff88;
-  color:#001e6c;
+  color: rgb(72, 72, 239);
   font-size: 18px;
   font-weight: bold;
   border-radius: 50px;
@@ -114,6 +114,7 @@ font-size: 20px;
   color:#001e6c;
   font-weight: 700;
   margin: 0.5em 0;
+  text-align: center;
 }
 
 .inicio_descricao{
@@ -127,7 +128,7 @@ font-size: 20px;
 .texto{
   color:rgb(72, 72, 239);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .modal {
